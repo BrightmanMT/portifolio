@@ -28,9 +28,8 @@
   const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
 
   function mobileNavToogle() {
-    document.querySelector('body').classList.toggle('mobile-nav-active');
-    mobileNavToggleBtn.classList.toggle('bi-list');
-    mobileNavToggleBtn.classList.toggle('bi-x');
+    const menu = document.querySelector('.mobile-menu');
+    menu.classList.toggle('show');
   }
   if (mobileNavToggleBtn) {
     mobileNavToggleBtn.addEventListener('click', mobileNavToogle);
@@ -41,11 +40,33 @@
    */
   document.querySelectorAll('#navmenu a').forEach(navmenu => {
     navmenu.addEventListener('click', () => {
-      if (document.querySelector('.mobile-nav-active')) {
-        mobileNavToogle();
-      }
+      document.querySelector('.mobile-menu').classList.remove('show');
     });
+  });
 
+  // Close button functionality
+  const closeBtn = document.querySelector('.mobile-menu-close');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      document.querySelector('.mobile-menu').classList.remove('show');
+    });
+  }
+
+  // Click outside to close mobile navigation
+  document.addEventListener('click', (e) => {
+    const overlay = document.querySelector('.mobile-menu-overlay');
+    const navmenu = document.querySelector('#navmenu');
+    const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
+    
+    if (document.body.classList.contains('menu-open') && 
+        e.target === overlay) {
+      mobileNavClose();
+    }
+  });
+
+  // Prevent menu clicks from bubbling to overlay
+  document.querySelector('#navmenu').addEventListener('click', (e) => {
+    e.stopPropagation();
   });
 
   /**
