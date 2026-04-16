@@ -2999,8 +2999,9 @@ p {
 .highlight-icon {
   font-size: 0.75rem;
   text-transform: uppercase;
-  font-weight: var(--font-weight-medium);
-  color: var(--accent-color);
+  font-weight: 900;
+  color: #000000;
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.8);
   background: color-mix(in srgb, var(--accent-color), transparent 8%);
   padding: 0.2rem 0.4rem;
   border-radius: 4px;
@@ -5882,11 +5883,12 @@ p {
 
 .skills-showcase .section-tag {
   background: linear-gradient(135deg, var(--accent-color), color-mix(in srgb, var(--accent-color), #059669 80%));
-  color: var(--contrast-color);
+  color: #000000;
+  font-weight: 900;
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.8);
   padding: 0.3rem 0.8rem;
   border-radius: 25px;
   font-size: 0.7rem;
-  font-weight: var(--font-weight-semibold);
   text-transform: uppercase;
   letter-spacing: 1.5px;
   margin-bottom: 0.8rem;
